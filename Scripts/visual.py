@@ -1,4 +1,4 @@
-print("Running setup.py...")
+print("Running visual.py...")
 
 # Load libraries
 from pandas import read_csv
