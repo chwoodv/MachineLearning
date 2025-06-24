@@ -27,3 +27,4 @@ print(dataset.shape)
 print(dataset.head(20))
 print(dataset.describe())
 print(dataset.groupby('Category').size())
+ 

@@ -22,14 +22,8 @@ url = "https://raw.githubusercontent.com/chwoodv/MachineLearning/refs/heads/main
 names = ["Category","Age","Sex","ALB","ALP","ALT","AST","BIL","CHE","CHOL","CREA","GGT","PROT"]
 dataset = read_csv(url, names=names)
 
-# Box and whisker plots
-dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
-plt.show()
+xpoints = dataset['Age']
+ypoints = dataset['Category']
 
-# histograms
-dataset.hist()
-plt.show()
-
-# scatter plot matrix
-scatter_matrix(dataset)
+dataset.plot(kind='scatter', x='Age', y='PROT', color='red')
 plt.show()
