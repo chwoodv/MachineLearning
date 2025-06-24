@@ -18,12 +18,12 @@ from pandas import read_csv
 # from sklearn.svm import SVC
 
 # Load dataset
-url = "https://raw.githubusercontent.com/MainakRepositor/Datasets/refs/heads/master/HepatitisCdata.csv"
-names = ["","Category","Age","Sex","ALB","ALP","ALT","AST","BIL","CHE","CHOL","CREA","GGT","PROT"]
+url = "https://raw.githubusercontent.com/chwoodv/MachineLearning/refs/heads/main/Data/hepatitis.csv"
+names = ["Category","Age","Sex","ALB","ALP","ALT","AST","BIL","CHE","CHOL","CREA","GGT","PROT"]
 dataset = read_csv(url, names=names)
 
 # Summarize the dataset
 print(dataset.shape)
 print(dataset.head(20))
 print(dataset.describe())
-print(dataset.groupby('class').size())
+print(dataset.groupby('Category').size())
