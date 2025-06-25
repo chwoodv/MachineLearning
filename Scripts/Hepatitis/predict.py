@@ -14,6 +14,7 @@ from sklearn.metrics import accuracy_score
 # from sklearn.tree import DecisionTreeClassifier
 # from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.impute import SimpleImputer
 # from sklearn.naive_bayes import GaussianNB
 # from sklearn.svm import SVC
 
@@ -24,9 +25,14 @@ dataset = read_csv(url, names=names)
 
 # Split-out dataset summary
 array = dataset.values
-X = array[:,0:4]
-y = array[:,4]
+X = array[:, 1:]  # Features (excluding Category)
+y = array[:, 0]   # Target (Category)
 X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.20, random_state=1, shuffle=True)
+
+# Handle missing values (NaNs) in features
+imputer = SimpleImputer(strategy='mean')
+X_train = imputer.fit_transform(X_train)
+X_validation = imputer.transform(X_validation)
 
 # Make predictions
 model = LinearDiscriminantAnalysis()
@@ -37,4 +43,3 @@ predictions = model.predict(X_validation)
 print(accuracy_score(Y_validation, predictions))
 print(confusion_matrix(Y_validation, predictions))
 print(classification_report(Y_validation, predictions))
-
