@@ -25,5 +25,14 @@ dataset = read_csv(url, names=names)
 xpoints = dataset['Age']
 ypoints = dataset['Category']
 
-dataset.plot(kind='scatter', x='Age', y='PROT', color='red')
+# Box and whisker plots
+dataset.plot(kind='box', subplots=True, layout=(4,4), sharex=False, sharey=False)
+plt.show()
+
+# histograms
+dataset.hist()
+plt.show()
+
+# scatter plot matrix
+scatter_matrix(dataset)
 plt.show()

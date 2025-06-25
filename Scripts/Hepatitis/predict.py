@@ -13,9 +13,9 @@ from sklearn.metrics import accuracy_score
 # from sklearn.linear_model import LogisticRegression
 # from sklearn.tree import DecisionTreeClassifier
 # from sklearn.neighbors import KNeighborsClassifier
-# from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 # from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
+# from sklearn.svm import SVC
 
 # Load dataset
 url = "https://raw.githubusercontent.com/chwoodv/MachineLearning/refs/heads/main/Data/hepatitis.csv"
@@ -29,7 +29,7 @@ y = array[:,4]
 X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.20, random_state=1, shuffle=True)
 
 # Make predictions
-model = SVC(gamma='auto')
+model = LinearDiscriminantAnalysis()
 model.fit(X_train, Y_train)
 predictions = model.predict(X_validation)
 
