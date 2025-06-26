@@ -29,7 +29,7 @@ X = array[:, 1:]  # Features (excluding Category)
 y = array[:, 0]   # Target (Category)
 X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.20, random_state=1, shuffle=True)
 
-# Handle missing values (NaNs) in features
+# Handle missing values (NaNs)
 imputer = SimpleImputer(strategy='mean')
 X_train = imputer.fit_transform(X_train)
 X_validation = imputer.transform(X_validation)
